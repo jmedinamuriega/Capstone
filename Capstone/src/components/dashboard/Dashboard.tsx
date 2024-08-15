@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
     }
   }, [user]);
 
-  // Determine if the current path is the dashboard path
+
   const isDashboardPath = location.pathname === '/dashboard';
 
   return (

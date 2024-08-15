@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         try {
             return storedUser ? JSON.parse(storedUser) : null;
         } catch {
-            return null; // If parsing fails, return null
+            return null; 
         }
     });
 
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setUser(loggedInUser);
         } catch (error) {
             console.error('Login failed:', error);
-            throw error; // Re-throw the error to be handled in the Login component
+            throw error; 
         }
     };
 
