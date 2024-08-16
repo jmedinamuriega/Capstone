@@ -4,9 +4,6 @@ import { AuthProvider, useAuth } from './components/contexts/AuthContext';
 import Register from './components/user/Register';
 import Login from './components/user/Login';
 import Dashboard from './components/dashboard/Dashboard';
-import OrderForm from './components/orders/OrderForm';
-import OrderHistory from './components/services/OrderHistory';
-import Profile from './components/services/Profile'; 
 import './App.css';
 
 const App: React.FC = () => {

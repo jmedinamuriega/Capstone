@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes, useLocation} from 'react-router-dom';
 import OrderHistory from '../services/OrderHistory';
 import Profile from '../services/Profile';
 import OrderForm from '../orders/OrderForm'; 
@@ -9,7 +9,6 @@ import './Dashboard.css';
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {

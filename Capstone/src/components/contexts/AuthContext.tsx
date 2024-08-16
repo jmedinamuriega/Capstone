@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import { createContext, useState, useContext, ReactNode } from 'react';
 import axios from 'axios';
 
 interface User {
@@ -29,10 +29,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const login = async (email: string, password: string) => {
         try {
-            const response = await axios.post('http://localhost:5000/login', { email, password });
-            const token = response.data.access_token;
+            const { data } = await axios.post('http://localhost:5000/login', { email, password });
+            const token = data.access_token;
             localStorage.setItem('token', token);
-            const loggedInUser: User = { username: response.data.username, email };
+            const loggedInUser: User = { username: data.username, email };
             localStorage.setItem('user', JSON.stringify(loggedInUser));
             setUser(loggedInUser);
         } catch (error) {
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const updateUser = async (updatedUser: { username: string; email: string }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.put('http://localhost:5000/update_account', updatedUser, {
+            await axios.put('http://localhost:5000/update_account', updatedUser, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

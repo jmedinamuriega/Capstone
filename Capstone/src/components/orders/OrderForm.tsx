@@ -12,7 +12,6 @@ const OrderForm: React.FC = () => {
   const [pickupDate, setPickupDate] = useState<string>('');
   const [deliveryDate, setDeliveryDate] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [basePrice, setBasePrice] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [summary, setSummary] = useState<string>('');
   const [showSummary, setShowSummary] = useState<boolean>(false);
@@ -32,8 +31,6 @@ const OrderForm: React.FC = () => {
   };
 
   useEffect(() => {
-    setBasePrice(basePrices[serviceType]);
-
     let total = basePrices[serviceType];
     if (bigItem) total += additionalCharges.bigItem;
     if (delivery) total += additionalCharges.delivery;
