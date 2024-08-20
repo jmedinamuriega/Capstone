@@ -23,7 +23,7 @@ const OrderHistory: React.FC = () => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const response = await axios.get('http://localhost:5000/services', {
+          const response = await axios.get('https://capstone-backend-cuha.onrender.com/services', {
             headers: {
               Authorization: `Bearer ${token}`,
             },

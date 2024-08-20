@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const login = async (email: string, password: string) => {
         try {
-            const { data } = await axios.post('http://localhost:5000/login', { email, password });
+            const { data } = await axios.post('https://capstone-backend-cuha.onrender.com/login', { email, password });
             const token = data.access_token;
             localStorage.setItem('token', token);
             const loggedInUser: User = { username: data.username, email };
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const register = async (username: string, email: string, password: string) => {
-        await axios.post('http://localhost:5000/register', { username, email, password });
+        await axios.post('https://capstone-backend-cuha.onrender.com/register', { username, email, password });
     };
 
     const logout = () => {
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const updateUser = async (updatedUser: { username: string; email: string }) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.put('http://localhost:5000/update_account', updatedUser, {
+            await axios.put('https://capstone-backend-cuha.onrender.com/update_account', updatedUser, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const deleteUser = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete('http://localhost:5000/delete_account', {
+            await axios.delete('https://capstone-backend-cuha.onrender.com/delete_account', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

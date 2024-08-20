@@ -60,7 +60,7 @@ const OrderForm: React.FC = () => {
 
     try {
       await axios.post(
-        'http://localhost:5000/services',
+        'https://capstone-backend-cuha.onrender.com/services',
         {
           service_type: serviceType,
           big_item: bigItem,
